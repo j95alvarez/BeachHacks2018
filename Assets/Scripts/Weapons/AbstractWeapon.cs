@@ -24,7 +24,7 @@ namespace TheSquad.Weapons
         {
             if(bulletPrefab && readyToFire)
             {
-                Instantiate();
+                CmdInstantiate();
                 StartCoroutine(CoStartCooldown());
             }
         }
@@ -35,7 +35,7 @@ namespace TheSquad.Weapons
         // Command. Commands can only be sent from the local player object. 
         // When making a networked command, the function name must begin with “Cmd”.
         [Command]
-        protected abstract void Instantiate();
+        protected abstract void CmdInstantiate();
 
         IEnumerator CoStartCooldown()
         {

@@ -9,7 +9,7 @@ namespace TheSquad.Weapons
 {
     public class Weapon : AbstractWeapon
     {
-        protected override void Instantiate()
+        protected override void CmdInstantiate()
         {
             // Create the Bullet from the Bullet Prefab
             var bullet = Instantiate(
