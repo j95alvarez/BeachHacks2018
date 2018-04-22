@@ -156,6 +156,7 @@ MonoBehaviour:
   AllowedConnections:
   - Ramp
   - Bridge
+  - Junction
   IsDefault: 0
 --- !u!114 &114559614990586632
 MonoBehaviour:
