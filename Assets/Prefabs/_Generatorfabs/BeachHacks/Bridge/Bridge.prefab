@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114401150955872376}
   - component: {fileID: 114316159191691018}
   - component: {fileID: 114359744977405624}
+  - component: {fileID: 64426007540373868}
   m_Layer: 0
   m_Name: Bridge
   m_TagString: Bridge
@@ -96,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1670471286516750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.977, y: 6.502, z: -6}
+  m_LocalPosition: {x: -0.15335524, y: 2.2523484, z: 2.7719274}
   m_LocalScale: {x: 1, y: 1, z: 3}
   m_Children:
   - {fileID: 4373936144028896}
@@ -144,6 +145,20 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1670471286516750}
+  m_Mesh: {fileID: 0}
+--- !u!64 &64426007540373868
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1670471286516750}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
 --- !u!114 &114316159191691018
 MonoBehaviour:
@@ -3555,7 +3570,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7cf8221bda6e8243be7ef04afb797d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllowedConnections: []
+  AllowedConnections:
+  - Ramp
+  - TreePlatform
+  - Bridge
   IsDefault: 0
 --- !u!114 &114359744977405624
 MonoBehaviour:
@@ -3593,5 +3611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7cf8221bda6e8243be7ef04afb797d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllowedConnections: []
+  AllowedConnections:
+  - Ramp
+  - TreePlatform
+  - Bridge
   IsDefault: 0
