@@ -7,6 +7,7 @@ public class PlayerMovement : AbstactMovement
 {
     [SerializeField] float speed;
     [SerializeField] float aimSpeed;
+    
     public bool pressDown = false;
 
     void FixedUpdate()

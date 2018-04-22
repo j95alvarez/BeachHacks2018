@@ -12,10 +12,13 @@ namespace TheSquad.Weapons
         [SerializeField] float spread;
 
         Rigidbody rb;
+        float actualSpread;
 
         [Command]
         protected override void CmdInstantiate()
         {
+            CalculateSpread();
+            Debug.Log(spread);
             var randomNumberX = Random.Range(-spread, spread);
             var randomNumberY = Random.Range(-spread, spread);
             var randomNumberZ = Random.Range(-spread, spread);
@@ -38,24 +41,22 @@ namespace TheSquad.Weapons
             // of networked GameObjects that the Server is managing so that if another Client joins
             // the game later, the objects will also be spawned on that Client in the correct state.
             NetworkServer.Spawn(bullet);
+
+            spread = actualSpread;
         }
 
         protected override void Start()
         {
             base.Start();
-            rb = GetComponent<Rigidbody>();
+            rb = GetComponentInParent<Rigidbody>();
+            actualSpread = spread;
         }
 
         void CalculateSpread()
         {
-            if(rb.velocity != new Vector3(0,0,0))
-            {
-                
-            }
-            else
-            {
-                spread = spread/4;
-            }
+            PlayerMovement move = GetComponentInParent<PlayerMovement>();
+            if(move.pressDown) spread = spread/2;
         }
+        
     }
 }

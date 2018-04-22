@@ -670,6 +670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   aimSpeed: 350
+  pressDown: 0
 --- !u!114 &114604477438744308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -743,7 +744,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 114209958863256822, guid: eb2f04461d7061243b2e3969e9272fd6,
     type: 2}
   bulletSpawn: {fileID: 4381923179014636}
-  cooldown: 0
+  cooldown: 1
   spread: 7
 --- !u!114 &114708961695108928
 MonoBehaviour:
