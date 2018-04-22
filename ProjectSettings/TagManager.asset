@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Junction
+  - Room
+  - Corridor
+  - Stairs
+  - TreePlatform
+  - Bridge
+  - Ramp
   layers:
   - Default
   - TransparentFX
