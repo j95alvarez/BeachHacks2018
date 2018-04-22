@@ -20,6 +20,7 @@ namespace TheSquad.Projectiles
         {
             if (coll.transform.root.GetComponent(typeof(IDamageable)))
             {
+                Debug.Log("Health");
                 GameObject damagedObject = coll.transform.root.gameObject;
                 SendDamage(damagedObject);
             }

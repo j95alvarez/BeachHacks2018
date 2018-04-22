@@ -57,6 +57,7 @@ namespace TheSquad.HealthSystem
             if (!isServer) { return; }
 
             currentHealth -= amount;
+            Mathf.Clamp(currentHealth, 0, maxHealth);
 
             if (isDead()) {
                 // Shooting the enemies will cause them to lose health 
@@ -101,11 +102,9 @@ namespace TheSquad.HealthSystem
             healthbar.sizeDelta = new Vector2(currentHealth, healthbar.sizeDelta.y);
         }
 
-        public bool isDead() {
-            if (currentHealth <= 0) {
-                return true;
-            }
-            return false;
+        public bool isDead()
+        {
+            return currentHealth == 0 ? true : false;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace TheSquad.InteractionSystem
         {
             // If Collider Is Of Type IInteractable, Make It The New CurrentInteractable
             CurrentInteractable = other.GetComponent(typeof(IInteractable)) ? other.gameObject
-                : CurrentInteractable; 
+                : CurrentInteractable;
         }
 
         void OnTriggerExit(Collider other)
@@ -26,7 +26,7 @@ namespace TheSquad.InteractionSystem
             if(Input.GetKeyDown(KeyCode.E))
             {
                 // If Interactable Exists Call Interact
-                if(CurrentInteractable) CurrentInteractable.GetComponent<IInteractable>().Interact(gameObject);
+                if(CurrentInteractable) CurrentInteractable.GetComponent<IInteractable>().Interact(transform.root.gameObject);
             }
         }
     }
