@@ -9,14 +9,27 @@ namespace TheSquad.Weapons
 {
     public class Weapon : AbstractWeapon
     {
+        [SerializeField] float spread;
+
+        Rigidbody rb;
+        float actualSpread;
+
         [Command]
         protected override void CmdInstantiate()
         {
+            CalculateSpread();
+            Debug.Log(spread);
+            var randomNumberX = Random.Range(-spread, spread);
+            var randomNumberY = Random.Range(-spread, spread);
+            var randomNumberZ = Random.Range(-spread, spread);
+
             // Create the Bullet from the Bullet Prefab
             var bullet = Instantiate(
                 bulletPrefab,
                 bulletSpawn.position,
                 bulletSpawn.rotation).gameObject;
+
+            bullet.transform.Rotate(randomNumberX, randomNumberY, randomNumberZ);
 
             // The next concept, one that is somewhat unique to Multiplayer Networking,
             // is the concept of Network Spawning. In the Multiplayer Networking HLAPI
@@ -28,6 +41,22 @@ namespace TheSquad.Weapons
             // of networked GameObjects that the Server is managing so that if another Client joins
             // the game later, the objects will also be spawned on that Client in the correct state.
             NetworkServer.Spawn(bullet);
+
+            spread = actualSpread;
         }
+
+        protected override void Start()
+        {
+            base.Start();
+            rb = GetComponentInParent<Rigidbody>();
+            actualSpread = spread;
+        }
+
+        void CalculateSpread()
+        {
+            PlayerMovement move = GetComponentInParent<PlayerMovement>();
+            if(move.pressDown) spread = spread/2;
+        }
+        
     }
 }

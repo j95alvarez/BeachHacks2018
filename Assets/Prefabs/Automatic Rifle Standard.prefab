@@ -208,7 +208,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 114209958863256822, guid: eb2f04461d7061243b2e3969e9272fd6,
     type: 2}
   bulletSpawn: {fileID: 4815105456397758}
-  cooldown: 0
+  cooldown: 1
+  spread: 10
 --- !u!114 &114603484563795666
 MonoBehaviour:
   m_ObjectHideFlags: 1
