@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using TheSquad.HealthSystem;
+
 public class Bullet : MonoBehaviour {
 
 	// Update is called once per frame
