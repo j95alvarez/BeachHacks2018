@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine;
 
 using TheSquad.Weapons;
@@ -11,8 +12,7 @@ namespace TheSquad.AttackSystem
         void FixedUpdate()
         {
             if (!isLocalPlayer) { return; }
-
-            if (Input.GetKeyDown(KeyCode.Space)) Attack();
+            if (Input.GetButtonDown("Fire1")) Attack();
         }
     }
 }

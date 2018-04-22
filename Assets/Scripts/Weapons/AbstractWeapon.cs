@@ -34,7 +34,6 @@ namespace TheSquad.Weapons
         // the function will automatically be passed to the Server with the 
         // Command. Commands can only be sent from the local player object. 
         // When making a networked command, the function name must begin with “Cmd”.
-        [Command]
         protected abstract void CmdInstantiate();
 
         IEnumerator CoStartCooldown()

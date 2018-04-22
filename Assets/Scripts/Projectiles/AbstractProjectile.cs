@@ -8,7 +8,7 @@ namespace TheSquad.Projectiles
 {
     public abstract class AbstractProjectile : MonoBehaviour
     {
-        [SerializeField] protected float damage;
+        [SerializeField] protected int damage;
         [SerializeField] float lifeTime;
 
         protected virtual void Start()
