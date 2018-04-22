@@ -11,6 +11,22 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1967544620197746}
   m_IsPrefabParent: 1
+--- !u!1 &1564070350026620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4537515093701676}
+  - component: {fileID: 114913477718219996}
+  m_Layer: 0
+  m_Name: SpawnPt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1824739529253990
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,13 +55,27 @@ GameObject:
   - component: {fileID: 95714647038463056}
   - component: {fileID: 114221280826214430}
   - component: {fileID: 114298823552652990}
+  - component: {fileID: 114603484563795666}
   m_Layer: 0
   m_Name: Automatic Rifle Standard
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4537515093701676
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1564070350026620}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.213, y: 0.178, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4835234886492916}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4815105456397758
 Transform:
   m_ObjectHideFlags: 1
@@ -66,10 +96,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1967544620197746}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.119999945, y: 0, z: 0.26571426}
-  m_LocalScale: {x: 1.4285719, y: 5, z: 10}
+  m_LocalPosition: {x: -68.46029, y: 122.432915, z: -121.88292}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4815105456397758}
+  - {fileID: 4537515093701676}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -178,3 +209,30 @@ MonoBehaviour:
     type: 2}
   bulletSpawn: {fileID: 4815105456397758}
   cooldown: 0
+--- !u!114 &114603484563795666
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1967544620197746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef2c614d1ba3a654eb9355c269d14b9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objTag: Weapon
+  weight: 0
+--- !u!114 &114913477718219996
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1564070350026620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7cf8221bda6e8243be7ef04afb797d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowedConnections:
+  - TreePlatform
+  IsDefault: 0
