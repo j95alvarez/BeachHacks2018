@@ -7,13 +7,15 @@ namespace TheSquad.InteractionSystem
 {
     public class GunInteractable : NetworkBehaviour, IInteractable
     {
+        //[SerializeField] Gun gunPickUp;
+
         public delegate void InteractAction();
         public event InteractAction onInteract;
 
         public void Interact(GameObject interactor)
         {
             
-
+            
             //onInteract();
         }
     }
