@@ -17,8 +17,11 @@ namespace TheSquad.InteractionSystem
 
         public void Interact(GameObject interactor)
         {
-            Destroy(interactor.GetComponentInChildren<AbstractWeapon>());
-            //weapon.transform.parent = interactor.transform;
+            GameObject oldWeapon = interactor.GetComponentInChildren<AbstractWeapon>().gameObject;
+            weapon.transform.parent = oldWeapon.transform.parent;
+
+            Destroy(oldWeapon);
+            
             Debug.Log("Interacted");
             //onInteract();
 

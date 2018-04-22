@@ -26,7 +26,7 @@ namespace TheSquad.InteractionSystem
             if(Input.GetKeyDown(KeyCode.E))
             {
                 // If Interactable Exists Call Interact
-                if(CurrentInteractable) CurrentInteractable.GetComponent<IInteractable>().Interact(gameObject);
+                if(CurrentInteractable) CurrentInteractable.GetComponent<IInteractable>().Interact(transform.root.gameObject);
             }
         }
     }
