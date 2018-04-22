@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 23134048235541238}
   - component: {fileID: 114280899907033844}
   - component: {fileID: 114328299329852188}
-  - component: {fileID: 114629306385880792}
+  - component: {fileID: 114083810102091344}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Player
@@ -297,6 +297,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114083810102091344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1974778292892842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e74c887fff2b64fa6635ffc4faed57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  healthbar: {fileID: 0}
+  destroyOnDeath: 0
+  spawnPoints: []
 --- !u!114 &114108403225567898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -398,20 +413,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114629306385880792
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1974778292892842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aecb08b36e2f74499fdfb614528f65c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  healthbar: {fileID: 224769560307075004}
-  destroyOnDeath: 1
 --- !u!114 &114791532648396942
 MonoBehaviour:
   m_ObjectHideFlags: 1

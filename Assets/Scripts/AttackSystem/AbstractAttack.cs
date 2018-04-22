@@ -9,7 +9,7 @@ namespace TheSquad.AttackSystem
 {
     public abstract class AbstractAttack : NetworkBehaviour
     {
-        public IFireable weapon;
+        public AbstractWeapon weapon;
 
         protected virtual void Attack()
         {
@@ -21,7 +21,7 @@ namespace TheSquad.AttackSystem
 
         protected virtual void Start()
         {
-            weapon = GetComponentInChildren<IFireable>();
+            weapon = GetComponentInChildren<AbstractWeapon>();
         }
     }
 }
