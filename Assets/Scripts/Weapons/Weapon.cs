@@ -11,6 +11,8 @@ namespace TheSquad.Weapons
     {
         [SerializeField] float spread;
 
+        Rigidbody rb;
+
         [Command]
         protected override void CmdInstantiate()
         {
@@ -36,6 +38,24 @@ namespace TheSquad.Weapons
             // of networked GameObjects that the Server is managing so that if another Client joins
             // the game later, the objects will also be spawned on that Client in the correct state.
             NetworkServer.Spawn(bullet);
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            rb = GetComponent<Rigidbody>();
+        }
+
+        void CalculateSpread()
+        {
+            if(rb.velocity != new Vector3(0,0,0))
+            {
+                
+            }
+            else
+            {
+                spread = spread/4;
+            }
         }
     }
 }
