@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine;
 
 namespace TheSquad.InteractionSystem
 {
-    public class GunInteractable : MonoBehaviour, IInteractable
+    public class GunInteractable : NetworkBehaviour, IInteractable
     {
         public delegate void InteractAction();
         public event InteractAction onInteract;
 
-        public void Interact()
+        public void Interact(GameObject interactor)
         {
-            //Player Picks Up Gun
+            
 
             //onInteract();
         }
