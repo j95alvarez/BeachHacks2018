@@ -24,6 +24,9 @@ public class HealthSystem : NetworkBehaviour {
     [SerializeField]
     private RectTransform healthbar;
 
+    [SerializeField]
+    private bool destroyOnDeath;
+
     public int Health {
         get { return currentHealth; }
         set { currentHealth += value; }
@@ -45,13 +48,20 @@ public class HealthSystem : NetworkBehaviour {
         currentHealth -= amount;
 
         if (isDead()) {
-            currentHealth = maxHealth;
+            // Shooting the enemies will cause them to lose health 
+            // and when their health reaches zero, the enemies will
+            // be destroyed. The players, however, should retain the 
+            // existing behaviour where they are moved back to the origin
+            // point when they “killed”, with their health restored to maximum.
+            if (destroyOnDeath) {
+                Destroy(gameObject);
+            } else {
+                currentHealth = maxHealth;
 
-            // called on the Server, but invoked on the Clients
-            RpcRespawn();
+                // called on the Server, but invoked on the Clients
+                RpcRespawn();
+            }
         }
-
-        
     }
 
     // ClientRpc calls can be sent from any spawned object on the 
