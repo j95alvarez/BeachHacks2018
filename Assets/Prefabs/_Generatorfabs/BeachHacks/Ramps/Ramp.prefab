@@ -173,7 +173,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllowedConnections:
   - Bridge
+  - TreePlatform
   - Ramp
+  - Junction
   IsDefault: 0
 --- !u!114 &114252935672075628
 MonoBehaviour:
@@ -489,6 +491,7 @@ MonoBehaviour:
   - Bridge
   - TreePlatform
   - Ramp
+  - Junction
   IsDefault: 0
 --- !u!114 &114969364089073230
 MonoBehaviour:

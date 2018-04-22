@@ -3573,7 +3573,7 @@ MonoBehaviour:
   AllowedConnections:
   - Ramp
   - TreePlatform
-  - Bridge
+  - Junction
   IsDefault: 0
 --- !u!114 &114359744977405624
 MonoBehaviour:
@@ -3614,5 +3614,5 @@ MonoBehaviour:
   AllowedConnections:
   - Ramp
   - TreePlatform
-  - Bridge
+  - Junction
   IsDefault: 0
