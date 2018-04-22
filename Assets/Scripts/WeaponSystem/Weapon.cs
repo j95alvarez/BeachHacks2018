@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine;
+
+using TheSquad.Projectiles;
 
 namespace TheSquad.Weapons
 {
@@ -9,10 +12,10 @@ namespace TheSquad.Weapons
         protected override void Instantiate()
         {
             // Create the Bullet from the Bullet Prefab
-            var bullet = (GameObject)Instantiate(
+            var bullet = Instantiate(
                 bulletPrefab,
                 bulletSpawn.position,
-                bulletSpawn.rotation);
+                bulletSpawn.rotation).gameObject;
 
             // The next concept, one that is somewhat unique to Multiplayer Networking,
             // is the concept of Network Spawning. In the Multiplayer Networking HLAPI

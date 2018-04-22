@@ -20,19 +20,13 @@ namespace TheSquad.Weapons
             readyToFire = true;
         }
 
-        public void Fire() {
-
+        public void Fire()
+        {
             if(bulletPrefab && readyToFire)
             {
                 Instantiate();
                 StartCoroutine(CoStartCooldown());
             }
-
-            // Add velocity to the bullet
-            //bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
-
-            // Destroy the bullet after 2 seconds
-            //Destroy(bullet, 2.0f);
         }
 
         // The [Command] attribute indicates that the following function will be

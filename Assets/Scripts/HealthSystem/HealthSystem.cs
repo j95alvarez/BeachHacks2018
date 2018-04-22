@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace TheSquad.HealthSystem
 {
-    public class HealthSystem : NetworkBehaviour {
+    public class HealthSystem : NetworkBehaviour, IDamageable {
 
         public int maxHealth;
 
