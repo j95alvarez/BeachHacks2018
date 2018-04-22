@@ -744,6 +744,7 @@ MonoBehaviour:
     type: 2}
   bulletSpawn: {fileID: 4381923179014636}
   cooldown: 0
+  spread: 7
 --- !u!114 &114708961695108928
 MonoBehaviour:
   m_ObjectHideFlags: 1

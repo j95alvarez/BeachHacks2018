@@ -9,14 +9,22 @@ namespace TheSquad.Weapons
 {
     public class Weapon : AbstractWeapon
     {
+        [SerializeField] float spread;
+
         [Command]
         protected override void CmdInstantiate()
         {
+            var randomNumberX = Random.Range(-spread, spread);
+            var randomNumberY = Random.Range(-spread, spread);
+            var randomNumberZ = Random.Range(-spread, spread);
+
             // Create the Bullet from the Bullet Prefab
             var bullet = Instantiate(
                 bulletPrefab,
                 bulletSpawn.position,
                 bulletSpawn.rotation).gameObject;
+
+            bullet.transform.Rotate(randomNumberX, randomNumberY, randomNumberZ);
 
             // The next concept, one that is somewhat unique to Multiplayer Networking,
             // is the concept of Network Spawning. In the Multiplayer Networking HLAPI
