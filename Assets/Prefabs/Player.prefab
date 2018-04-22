@@ -676,7 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 224643590302515876}
   destroyOnDeath: 1
   spawnPoints: []
 --- !u!114 &114585977750090362
