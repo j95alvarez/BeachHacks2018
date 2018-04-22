@@ -31,15 +31,28 @@ public class ProcGenWorld : MonoBehaviour {
         //Get exits of these modules
         pendingExits = new List<ModuleConnector>(startModule.GetExits());
     }
+    public void EmptyLists()
+    {
+        if (pendingExits.Any())
+            pendingExits.Clear();
+        if (sceneOBJs.Any())
+            sceneOBJs.Clear();
+    }
     public void DestroyWorld()
     {
-        bool isEmpty = !pendingExits.Any();
-        sceneOBJs.Clear();
-        if(!isEmpty)
-            pendingExits.Clear();
+        EmptyLists();
         var tempList = transform.Cast<Transform>().ToList();
         foreach (var c in tempList)
             DestroyImmediate(c.gameObject);
+    }
+    public void ClearExits()
+    {
+        foreach (Module m in sceneOBJs)
+        {
+            Component[] exits = GetComponentsInChildren<ModuleConnector>();
+            foreach(ModuleConnector mc in exits)
+                DestroyImmediate(mc);
+        }
     }
     public void ProcGenIters()
     {

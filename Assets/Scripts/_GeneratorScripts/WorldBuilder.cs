@@ -16,6 +16,8 @@ public class WorldBuilder : Editor {
             myWorld.CreateStart();
         if (GUILayout.Button("Generate"))
             myWorld.BuildWorld();
+        if (GUILayout.Button("Clear Exits"))
+            myWorld.ClearExits();
         if (GUILayout.Button("Destroy"))
             myWorld.DestroyWorld();
         if (GUILayout.Button("Create Player"))
