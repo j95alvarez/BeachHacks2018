@@ -11,6 +11,8 @@ TagManager:
   - TreePlatform
   - Bridge
   - Ramp
+  - Weapon
+  - Ground
   layers:
   - Default
   - TransparentFX
