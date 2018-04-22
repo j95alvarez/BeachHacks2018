@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour {
 	// Update is called once per frame
 	private void OnCollisionEnter (Collision col) {
         var hit = col.gameObject;
-        var health = hit.GetComponent<HealthSystem>();
+        var health = hit.GetComponent<IDamageable>();
 
         if (health != null) {
             health.TakeDamage(10);

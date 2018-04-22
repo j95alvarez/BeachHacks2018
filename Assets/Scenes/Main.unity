@@ -412,9 +412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36dae9ebc9c4939478434d0a580b8629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1974778292892842, guid: 7e70ea686f39e5b46aa62b49c1284de5,
-    type: 2}
-  numberofEnemies: 4
 --- !u!114 &1764765759
 MonoBehaviour:
   m_ObjectHideFlags: 0

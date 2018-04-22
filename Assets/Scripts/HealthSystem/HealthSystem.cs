@@ -6,8 +6,8 @@ using UnityEngine;
 
 namespace TheSquad.HealthSystem
 {
-    public class HealthSystem : NetworkBehaviour, IDamageable {
-
+    public class HealthSystem : NetworkBehaviour, IDamageable 
+    {
         public int maxHealth;
 
         // To make our current health and damage system 
@@ -25,6 +25,18 @@ namespace TheSquad.HealthSystem
 
         [SerializeField]
         private RectTransform healthbar;
+
+        [SerializeField]
+        private bool destroyOnDeath;
+
+        [SerializeField]
+        private NetworkStartPosition[] spawnPoints;
+
+        private void OnStart() {
+            if (isLocalPlayer) {
+                spawnPoints = FindObjectsOfType<NetworkStartPosition>();
+            }
+        }
 
         public int Health {
             get { return currentHealth; }
@@ -47,13 +59,20 @@ namespace TheSquad.HealthSystem
             currentHealth -= amount;
 
             if (isDead()) {
-                currentHealth = maxHealth;
+                // Shooting the enemies will cause them to lose health 
+                // and when their health reaches zero, the enemies will
+                // be destroyed. The players, however, should retain the 
+                // existing behaviour where they are moved back to the origin
+                // point when they “killed”, with their health restored to maximum.
+                if (destroyOnDeath) {
+                    Destroy(gameObject);
+                } else {
+                    currentHealth = maxHealth;
 
-                // called on the Server, but invoked on the Clients
-                RpcRespawn();
+                    // called on the Server, but invoked on the Clients
+                    RpcRespawn();
+                }
             }
-
-            
         }
 
         // ClientRpc calls can be sent from any spawned object on the 
@@ -65,8 +84,16 @@ namespace TheSquad.HealthSystem
         [ClientRpc]
         private void RpcRespawn() {
             if (isLocalPlayer) {
-                // move back to zero location
-                transform.position = Vector3.zero;
+                // Set the spawn point to origin as a default value
+                Vector3 spawnPoint = Vector3.zero;
+
+                // If there is a spawn point array and the array is not empty, pick one at random
+                if (spawnPoints != null && spawnPoints.Length > 0) {
+                    spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position;
+                }
+
+                // Set the player’s position to the chosen spawn point
+                transform.position = spawnPoint;
             }
         }
 
