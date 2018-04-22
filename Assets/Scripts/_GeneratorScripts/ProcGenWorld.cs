@@ -51,7 +51,7 @@ public class ProcGenWorld : MonoBehaviour {
         {
             Component[] exits = GetComponentsInChildren<ModuleConnector>();
             foreach(ModuleConnector mc in exits)
-                DestroyImmediate(mc);
+                DestroyImmediate(mc.gameObject);
         }
     }
     public void ProcGenIters()
