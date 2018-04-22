@@ -12,6 +12,8 @@ public class PlayerMovement : AbstactMovement
 
     protected override void Move()
     {
+        if (!isLocalPlayer) { return; }
+
         var horizontal = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
         var vertical = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
 
