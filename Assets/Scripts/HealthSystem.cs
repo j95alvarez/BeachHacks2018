@@ -45,11 +45,27 @@ public class HealthSystem : NetworkBehaviour {
         currentHealth -= amount;
 
         if (isDead()) {
-            currentHealth = 0;
-            Debug.Log("Player is Dead!");
+            currentHealth = maxHealth;
+
+            // called on the Server, but invoked on the Clients
+            RpcRespawn();
         }
 
         
+    }
+
+    // ClientRpc calls can be sent from any spawned object on the 
+    // Server with a NetworkIdentity. Even though this function 
+    // is called on the Server, it will be executed on the Clients.
+    // ClientRpc's are the opposite of Commands. Commands are called 
+    // on the Client, but executed on the Server. ClientRpc's are called
+    // on the Server, but executed on the Client.
+    [ClientRpc]
+    private void RpcRespawn() {
+        if (isLocalPlayer) {
+            // move back to zero location
+            transform.position = Vector3.zero;
+        }
     }
 
     private void OnChangeHealth(int currentHealth) {
