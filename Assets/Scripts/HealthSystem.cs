@@ -1,12 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 using UnityEngine;
 
-public class HealthSystem : MonoBehaviour {
+public class HealthSystem : NetworkBehaviour {
 
     public int maxHealth;
 
+    // To make our current health and damage system 
+    // network aware and working under Server authority,
+    // we need to use State Synchronization and a special 
+    // member variable on networked objects called SyncVars.
+    // Network synchronized variables, or SyncVars, are indicated
+    // with the attribute [SyncVar]. 
+    //
+    // SyncVar hooks will link a function to the SyncVar. These 
+    // functions are invoked on the Server and all Clients when the
+    // value of the SyncVar changes.
+    [SyncVar(hook = "OnChangeHealth")]
     private int currentHealth;
 
     [SerializeField]
@@ -26,6 +38,10 @@ public class HealthSystem : MonoBehaviour {
     }
 
     public void TakeDamage(int amount) {
+        // a check for “isServer” so that damage 
+        // will only be applied on the Server.
+        if (!isServer) { return; }
+
         currentHealth -= amount;
 
         if (isDead()) {
@@ -33,6 +49,10 @@ public class HealthSystem : MonoBehaviour {
             Debug.Log("Player is Dead!");
         }
 
+        
+    }
+
+    private void OnChangeHealth(int currentHealth) {
         healthbar.sizeDelta = new Vector2(currentHealth, healthbar.sizeDelta.y);
     }
 

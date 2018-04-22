@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
-
 [CustomEditor(typeof(ProcGenWorld))]
 [CanEditMultipleObjects]
 public class WorldBuilder : Editor {
@@ -22,3 +22,4 @@ public class WorldBuilder : Editor {
             myWorld.CreatePlayer();
     }
 }
+#endif
