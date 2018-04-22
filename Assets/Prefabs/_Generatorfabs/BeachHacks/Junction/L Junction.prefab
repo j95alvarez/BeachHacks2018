@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114210504509832778}
   - component: {fileID: 114166744458291356}
   - component: {fileID: 64296452453498976}
+  - component: {fileID: 114276244198727650}
   m_Layer: 0
   m_Name: L Junction
   m_TagString: Junction
@@ -172,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllowedConnections:
   - Bridge
-  - Ramps
+  - Ramp
   - TreePlatform
   IsDefault: 0
 --- !u!114 &114166744458291356
@@ -2013,6 +2014,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityType: 0
+--- !u!114 &114276244198727650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1074557547585318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef2c614d1ba3a654eb9355c269d14b9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objTag: Junction
+  weight: 0
 --- !u!114 &114329000753640020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2026,6 +2040,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllowedConnections:
   - Bridge
-  - Ramps
+  - Ramp
   - TreePlatform
   IsDefault: 0
